@@ -1,7 +1,6 @@
 package gitignore
 
 import (
-	"fmt"
 	"regexp"
 	"strings"
 )
@@ -18,7 +17,7 @@ func (p Pattern) Match(path string) bool {
 		}
 
 		if isRoot(line) {
-			return "/"+path == line
+			return "/"+path == line || strings.HasPrefix("/"+path, line+"/")
 		}
 
 		if isFilePath(line) {
@@ -80,8 +79,6 @@ func patternToRegex(pattern string) *regexp.Regexp {
 		}
 		pat = append(pat, strings.Join(innerPat, `[^/]*`))
 	}
-
-	fmt.Printf("p: %s\n", prefix+strings.Join(pat, `.*`))
 
 	exp, _ := regexp.Compile(prefix + strings.Join(pat, `.*`))
 

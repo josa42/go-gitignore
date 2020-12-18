@@ -1,7 +1,6 @@
 package gitignore
 
 import (
-	"fmt"
 	"io/ioutil"
 	"strings"
 )
@@ -12,8 +11,6 @@ type Gitignore struct {
 }
 
 func NewGitignoreFromString(str string) Gitignore {
-
-	fmt.Println(str)
 
 	patterns := []Pattern{}
 	excludes := []Pattern{}
@@ -40,7 +37,6 @@ func NewGitignoreFromFile(path string) (Gitignore, error) {
 
 func (g Gitignore) Match(path string) bool {
 	for _, p := range g.excludes {
-		fmt.Println(path, p, p.Match(path))
 		if p.Match(path) {
 			return false
 		}

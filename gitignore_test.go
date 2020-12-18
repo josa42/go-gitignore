@@ -32,7 +32,7 @@ func TestNewGitignoreFromFile(t *testing.T) {
 }
 
 func TestNewGitignoreFromFile_notFound(t *testing.T) {
-	defer cd("testdata/does-not-exist")()
+	defer cd("testdata/no-gitignore")()
 
 	gitgnore, err := gitignore.NewGitignoreFromFile(".gitignore")
 
@@ -41,8 +41,8 @@ func TestNewGitignoreFromFile_notFound(t *testing.T) {
 }
 
 type Case struct {
-	Name     string
-	Ignore   string `json:"ignore"`
+	Name     string `json:"name"`
+	Pattern  string `json:"pattern"`
 	FilePath string `json:"file_path"`
 	Ignored  bool   `json:"ignored"`
 }
@@ -56,7 +56,7 @@ func TestGitignore(t *testing.T) {
 
 	for _, c := range cases {
 		t.Run(c.Name, func(t *testing.T) {
-			ignore := gitignore.NewGitignoreFromString(c.Ignore)
+			ignore := gitignore.NewGitignoreFromString(c.Pattern)
 
 			assert.Equal(t, c.Ignored, ignore.Match(c.FilePath))
 		})
