@@ -1,0 +1,116 @@
+[
+  {
+    "Name": "Simple: data",
+    "ignore": "/data",
+    "file_path": "data",
+    "ignored": true
+  },
+  {
+    "Name": "Simple: data/file",
+    "ignore": "/data",
+    "file_path": "data/file",
+    "ignored": true
+  },
+  {
+    "Name": "Simple: data.json",
+    "ignore": "/data",
+    "file_path": "data.json",
+    "ignored": false
+  },
+  {
+    "Name": "basic: ignore.txt",
+    "ignore": "ignore.txt",
+    "file_path": "ignore.txt",
+    "ignored": true
+  },
+  {
+    "Name": "basic: bar/ignore.txt",
+    "ignore": "ignore.txt",
+    "file_path": "bar/ignore.txt",
+    "ignored": true
+  },
+  {
+    "Name": "basic: include.txt",
+    "ignore": "ignore.txt",
+    "file_path": "include.txt",
+    "ignored": false
+  },
+  {
+    "Name": "basic: bar/include.txt",
+    "ignore": "ignore.txt",
+    "file_path": "bar/include.txt",
+    "ignored": false
+  },
+  {
+    "Name": "basic: other.txt",
+    "ignore": "ignore.txt",
+    "file_path": "other.txt",
+    "ignored": false
+  },
+  {
+    "Name": "basic: bar/other.txt",
+    "ignore": "ignore.txt",
+    "file_path": "bar/other.txt",
+    "ignored": false
+  },
+  {
+    "Name": "empty: foo.txt",
+    "ignore": "",
+    "file_path": "foo.txt",
+    "ignored": false
+  },
+  {
+    "Name": "empty: bar/foo.txt",
+    "ignore": "",
+    "file_path": "bar/foo.txt",
+    "ignored": false
+  },
+  {
+    "Name": "Wildcards: data/ignore.txt",
+    "ignore": "data/*\n!data/keep.txt\n/rootdata/*\n!keep.all.txt\ntmp/",
+    "file_path": "data/ignore.txt",
+    "ignored": true
+  },
+  {
+    "Name": "Wildcards: data/keep.txt",
+    "ignore": "data/*\n!data/keep.txt\n/rootdata/*\n!keep.all.txt\ntmp/",
+    "file_path": "data/keep.txt",
+    "ignored": false
+  },
+  {
+    "Name": "Wildcards: rootdata/data/ignore.txt",
+    "ignore": "data/*\n!data/keep.txt\n/rootdata/*\n!keep.all.txt\ntmp/",
+    "file_path": "rootdata/data/ignore.txt",
+    "ignored": true
+  },
+  {
+    "Name": "Wildcards: data/data/ignore.txt",
+    "ignore": "data/*\n!data/keep.txt\n/rootdata/*\n!keep.all.txt\ntmp/",
+    "file_path": "data/data/ignore.txt",
+    "ignored": true
+  },
+  {
+    "Name": "Wildcards: other/data/ignore.txt",
+    "ignore": "data/*\n!data/keep.txt\n/rootdata/*\n!keep.all.txt\ntmp/",
+    "file_path": "other/data/ignore.txt",
+    "ignored": false
+  },
+  {
+    "Name": "Wildcards: other/data/keep.txt",
+    "ignore": "data/*\n!data/keep.txt\n/rootdata/*\n!keep.all.txt\ntmp/",
+    "file_path": "other/data/keep.txt",
+    "ignored": false
+  },
+  {
+    "Name": "Wildcards: tmp",
+    "ignore": "data/*\n!data/keep.txt\n/rootdata/*\n!keep.all.txt\ntmp/",
+    "file_path": "tmp",
+    "ignored": false
+  },
+  {
+    "Name": "Wildcards: tmp/file",
+    "ignore": "data/*\n!data/keep.txt\n/rootdata/*\n!keep.all.txt\ntmp/",
+    "file_path": "tmp/file",
+    "ignored": true
+  }
+]

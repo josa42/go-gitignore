@@ -1,6 +1,8 @@
 package gitignore_test
 
 import (
+	"encoding/json"
+	"io/ioutil"
 	"os"
 	"testing"
 
@@ -38,33 +40,26 @@ func TestNewGitignoreFromFile_notFound(t *testing.T) {
 	assert.NotNil(t, err)
 }
 
-func TestGitignoreMatch_empty(t *testing.T) {
-	defer cd("testdata/empty")()
-
-	i, _ := gitignore.NewGitignoreFromFile(".gitignore")
-
-	assert.False(t, i.Match("foo.txt"))
-	assert.False(t, i.Match("bar/foo.txt"))
+type Case struct {
+	Name     string
+	Ignore   string `json:"ignore"`
+	FilePath string `json:"file_path"`
+	Ignored  bool   `json:"ignored"`
 }
 
-func TestGitignoreMatch_basic(t *testing.T) {
-	defer cd("testdata/basic")()
+func TestGitignore(t *testing.T) {
 
-	i, _ := gitignore.NewGitignoreFromFile(".gitignore")
+	cases := []Case{}
 
-	assert.True(t, i.Match("ignore.txt"))
-	assert.True(t, i.Match("bar/ignore.txt"))
-	assert.False(t, i.Match("include.txt"))
-	assert.False(t, i.Match("bar/include.txt"))
-	assert.False(t, i.Match("other.txt"))
-	assert.False(t, i.Match("bar/other.txt"))
-}
+	content, _ := ioutil.ReadFile("testdata/cases.json")
+	json.Unmarshal(content, &cases)
 
-func TestGitignoreMatch_wildcard(t *testing.T) {
-	defer cd("testdata/wildcard")()
+	for _, c := range cases {
+		t.Run(c.Name, func(t *testing.T) {
+			ignore := gitignore.NewGitignoreFromString(c.Ignore)
 
-	i, _ := gitignore.NewGitignoreFromFile(".gitignore")
+			assert.Equal(t, c.Ignored, ignore.Match(c.FilePath))
+		})
+	}
 
-	assert.True(t, i.Match("data/ignore.txt"))
-	assert.False(t, i.Match("data/keep.txt"))
 }
