@@ -12,20 +12,18 @@ type Pattern struct {
 
 func (p Pattern) Match(path string) bool {
 
-	if p.line != "" {
-		if isFilename(p.line) {
-			return filename(path) == p.line
+	if line := normalize(p.line); line != "" {
+		if isPattern(line) {
+			return patternToRegex(line).MatchString(path)
 		}
 
-		if isRoot(p.line) && !isPattern(p.line) {
-			return "/"+path == p.line
+		if isRoot(line) {
+			return "/"+path == line
 		}
 
-		if isPattern(p.line) {
-			return patternToRegex(p.line).MatchString(path)
+		if isFilePath(line) {
+			return filename(path) == line
 		}
-
-		// TODO handle wildcards
 	}
 
 	return false
@@ -36,16 +34,28 @@ func filename(line string) string {
 	return p[len(p)-1]
 }
 
-func isFilename(line string) bool {
-	return !strings.Contains(line, "/") && !isPattern(line)
+func isFilePath(line string) bool {
+	return !isPattern(line)
 }
 
+// See: https://git-scm.com/docs/gitignore
+//
+// The pattern foo/ will match a directory foo and paths underneath it, but will
+// not match a regular file or a symbolic link foo (this is consistent with the
+// way how pathspec works in general in Git)
 func isRoot(line string) bool {
-	return strings.HasPrefix(line, "/")
+	return strings.Contains(line, "/")
 }
 
 func isPattern(line string) bool {
 	return strings.Contains(line, "*")
+}
+
+func normalize(line string) string {
+	if !strings.HasPrefix(line, "/") && isRoot(line) {
+		return "/" + line
+	}
+	return line
 }
 
 var splitExp = regexp.MustCompile(`\*\*(\/\*)?`)

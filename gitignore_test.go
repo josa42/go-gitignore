@@ -59,3 +59,12 @@ func TestGitignoreMatch_basic(t *testing.T) {
 	assert.False(t, i.Match("other.txt"))
 	assert.False(t, i.Match("bar/other.txt"))
 }
+
+func TestGitignoreMatch_wildcard(t *testing.T) {
+	defer cd("testdata/wildcard")()
+
+	i, _ := gitignore.NewGitignoreFromFile(".gitignore")
+
+	assert.True(t, i.Match("data/ignore.txt"))
+	assert.False(t, i.Match("data/keep.txt"))
+}

@@ -8,6 +8,7 @@ import (
 
 type Gitignore struct {
 	patterns []Pattern
+	excludes []Pattern
 }
 
 func NewGitignoreFromString(str string) Gitignore {
@@ -15,16 +16,21 @@ func NewGitignoreFromString(str string) Gitignore {
 	fmt.Println(str)
 
 	patterns := []Pattern{}
+	excludes := []Pattern{}
 
 	for _, l := range strings.Split(str, "\n") {
 		l = strings.TrimSpace(l)
 
 		if l != "" && !strings.HasPrefix(l, "#") {
-			patterns = append(patterns, Pattern{line: l})
+			if strings.HasPrefix(l, "!") {
+				excludes = append(excludes, Pattern{line: l[1:]})
+			} else {
+				patterns = append(patterns, Pattern{line: l})
+			}
 		}
 	}
 
-	return Gitignore{patterns: patterns}
+	return Gitignore{patterns: patterns, excludes: excludes}
 }
 
 func NewGitignoreFromFile(path string) (Gitignore, error) {
@@ -33,6 +39,12 @@ func NewGitignoreFromFile(path string) (Gitignore, error) {
 }
 
 func (g Gitignore) Match(path string) bool {
+	for _, p := range g.excludes {
+		fmt.Println(path, p, p.Match(path))
+		if p.Match(path) {
+			return false
+		}
+	}
 	for _, p := range g.patterns {
 		if p.Match(path) {
 			return true
