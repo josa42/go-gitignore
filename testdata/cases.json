@@ -578,7 +578,6 @@
     "ignored": true
   },
   {
-    "skip": true,
     "name": "mherrmann/gitignore_parser: comment: #imnocomment",
     "pattern": "somematch\n\n#realcomment\n\nothermatch\n\n\\#imnocomment",
     "file_path": "#imnocomment",

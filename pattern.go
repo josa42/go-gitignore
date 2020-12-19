@@ -60,6 +60,8 @@ func isPattern(line string) bool {
 }
 
 func normalize(line string) string {
+	line = strings.ReplaceAll(line, "\\#", "#")
+
 	quotedSpace := strings.HasSuffix(line, "\\ ")
 	// FIXME
 	line = strings.TrimSpace(line)
