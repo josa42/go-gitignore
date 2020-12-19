@@ -21,29 +21,10 @@ var (
 func (p Pattern) Match(path string) bool {
 
 	if line := normalize(p.line); line != "" {
-
-		// fmt.Printf("line = '%s'\npath = '%s'\n", p.line, path)
 		return patternToRegex(line).MatchString(path)
 	}
 
 	return false
-}
-
-func filename(line string) string {
-	p := strings.Split(line, "/")
-	return p[len(p)-1]
-}
-
-func dirname(line string) string {
-	p := strings.Split(line, "/")
-	if len(p) >= 2 {
-		return p[len(p)-2]
-	}
-	return ""
-}
-
-func isDirPath(line string) bool {
-	return strings.HasSuffix(line, "/")
 }
 
 // See: https://git-scm.com/docs/gitignore
@@ -52,25 +33,22 @@ func isDirPath(line string) bool {
 // not match a regular file or a symbolic link foo (this is consistent with the
 // way how pathspec works in general in Git)
 func isRootPath(line string) bool {
-	return strings.Contains(stripSuffixSlash(line), "/")
-}
-
-func isPattern(line string) bool {
-	return true
+	return strings.HasPrefix(line, "/") || strings.Contains(stripSuffixSlash(line), "/")
 }
 
 func normalize(line string) string {
 	line = strings.ReplaceAll(line, "\\#", "#")
 
-	quotedSpace := exprSpaceSuffix.MatchString(line)
-	// FIXME
+	keepSpaceSuffix := exprSpaceSuffix.MatchString(line)
 	line = strings.TrimSpace(line)
-	if quotedSpace {
+	if keepSpaceSuffix {
 		line += " "
 	}
-	if !strings.HasPrefix(line, "/") && isRootPath(line) {
-		return "/" + line
+
+	if isRootPath(line) && !strings.HasPrefix(line, "/") {
+		line = "/" + line
 	}
+
 	return line
 }
 
@@ -82,9 +60,7 @@ func patternToRegex(pattern string) *regexp.Regexp {
 		pattern = pattern[1:]
 	}
 
-	// root := isRootPath(pattern)
-	dir := isDirPath(pattern)
-	childrenOnly := strings.HasSuffix(pattern, "/**") || strings.HasSuffix(pattern, "/*")
+	childrenOnly := strings.HasSuffix(pattern, "/") || strings.HasSuffix(pattern, "/**") || strings.HasSuffix(pattern, "/*")
 
 	if strings.Contains(pattern, "**") && !strings.HasPrefix(pattern, "**") {
 		prefix = "^"
@@ -105,13 +81,10 @@ func patternToRegex(pattern string) *regexp.Regexp {
 
 	if childrenOnly {
 		exprStr += "(/.*)"
-	} else if dir {
-		exprStr += "(/.*)"
 	} else {
 		exprStr += "($|/)"
 	}
 
-	// fmt.Println("expr =", exprStr)
 	exp, _ := regexp.Compile(exprStr)
 
 	return exp
@@ -143,8 +116,4 @@ func stripPrefixSlash(str string) string {
 
 func stripSurroundingSlashes(str string) string {
 	return stripPrefixSlash(stripSuffixSlash(str))
-}
-
-func ensureSuffixSlash(str string) string {
-	return exprStripSuffixSlash.ReplaceAllString(str, "") + "/"
 }
