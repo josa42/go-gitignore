@@ -216,6 +216,18 @@
     "ignored": false
   },
   {
+    "name": "Wildcards: data",
+    "pattern": "data/*\n!data/keep.txt\n/rootdata/*\n!keep.all.txt\ntmp/",
+    "file_path": "data",
+    "ignored": false
+  },
+  {
+    "name": "Wildcards: data/",
+    "pattern": "data/*\n!data/keep.txt\n/rootdata/*\n!keep.all.txt\ntmp/",
+    "file_path": "data/",
+    "ignored": true
+  },
+  {
     "name": "Wildcards: data/ignore.txt",
     "pattern": "data/*\n!data/keep.txt\n/rootdata/*\n!keep.all.txt\ntmp/",
     "file_path": "data/ignore.txt",
@@ -602,7 +614,6 @@
     "ignored": true
   },
   {
-    "skip": true,
     "name": "mherrmann/gitignore_parser: directory_asterisk: .venv",
     "pattern": ".venv/*",
     "file_path": ".venv",
@@ -1029,7 +1040,6 @@
     "ignored": false
   },
   {
-    "skip": true,
     "name": "hawknewton/gitignore-parser: given a pattern with a a trailing \"/**\": baz",
     "pattern": "baz/**",
     "file_path": "baz",
@@ -1039,6 +1049,30 @@
     "name": "hawknewton/gitignore-parser: given a pattern with a a trailing \"/**\": baz/",
     "pattern": "baz/**",
     "file_path": "baz/",
+    "ignored": true
+  },
+  {
+    "name": "hawknewton/gitignore-parser: given a pattern with a a trailing \"/**\": baz/a",
+    "pattern": "baz/**",
+    "file_path": "baz/a",
+    "ignored": true
+  },
+  {
+    "name": "hawknewton/gitignore-parser: given a pattern with a a trailing \"/**\": baz/a/",
+    "pattern": "baz/**",
+    "file_path": "baz/a/",
+    "ignored": true
+  },
+  {
+    "name": "hawknewton/gitignore-parser: given a pattern with a a trailing \"/**\": baz/a/b",
+    "pattern": "baz/**",
+    "file_path": "baz/a/b",
+    "ignored": true
+  },
+  {
+    "name": "hawknewton/gitignore-parser: given a pattern with a a trailing \"/**\": baz/a/b/",
+    "pattern": "baz/**",
+    "file_path": "baz/a/b/",
     "ignored": true
   },
   {

@@ -84,6 +84,7 @@ func patternToRegex(pattern string) *regexp.Regexp {
 
 	// root := isRootPath(pattern)
 	dir := isDirPath(pattern)
+	childrenOnly := strings.HasSuffix(pattern, "/**") || strings.HasSuffix(pattern, "/*")
 
 	if strings.Contains(pattern, "**") && !strings.HasPrefix(pattern, "**") {
 		prefix = "^"
@@ -102,7 +103,9 @@ func patternToRegex(pattern string) *regexp.Regexp {
 
 	exprStr := prefix + strings.Join(pat, `(.*|)`)
 
-	if dir {
+	if childrenOnly {
+		exprStr += "(/.*)"
+	} else if dir {
 		exprStr += "(/.*)"
 	} else {
 		exprStr += "($|/)"

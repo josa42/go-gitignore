@@ -167,6 +167,8 @@
       "tmp/"
     ],
     "files": [
+      "data",
+      "data/",
       "data/ignore.txt",
       "data/keep.txt",
       "rootdata/data/ignore.txt",
@@ -546,7 +548,11 @@
     "files": [
       "foo",
       "baz",
-      "baz/"
+      "baz/",
+      "baz/a",
+      "baz/a/",
+      "baz/a/b",
+      "baz/a/b/"
     ]
   },
   {
