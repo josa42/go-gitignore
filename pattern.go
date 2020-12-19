@@ -9,6 +9,10 @@ type Pattern struct {
 	line string
 }
 
+var (
+	exprStripSuffixSlash = regexp.MustCompile("/$")
+)
+
 func (p Pattern) Match(path string) bool {
 
 	if line := normalize(p.line); line != "" {
@@ -17,11 +21,15 @@ func (p Pattern) Match(path string) bool {
 		}
 
 		if isRoot(line) {
-			return "/"+path == line || strings.HasPrefix("/"+path, line+"/")
+			return "/"+path == line || strings.HasPrefix("/"+path, ensureSuffixSlash(line))
 		}
 
 		if isFilePath(line) {
 			return filename(path) == line
+		}
+
+		if isDirPath(line) {
+			return dirname(path) == dirname(line)
 		}
 	}
 
@@ -33,8 +41,20 @@ func filename(line string) string {
 	return p[len(p)-1]
 }
 
+func dirname(line string) string {
+	p := strings.Split(line, "/")
+	if len(p) >= 2 {
+		return p[len(p)-2]
+	}
+	return ""
+}
+
 func isFilePath(line string) bool {
-	return !isPattern(line)
+	return !isPattern(line) && !strings.HasSuffix(line, "/")
+}
+
+func isDirPath(line string) bool {
+	return !isPattern(line) && strings.HasSuffix(line, "/")
 }
 
 // See: https://git-scm.com/docs/gitignore
@@ -43,7 +63,7 @@ func isFilePath(line string) bool {
 // not match a regular file or a symbolic link foo (this is consistent with the
 // way how pathspec works in general in Git)
 func isRoot(line string) bool {
-	return strings.Contains(line, "/")
+	return strings.Contains(stripSuffixSlash(line), "/")
 }
 
 func isPattern(line string) bool {
@@ -83,4 +103,12 @@ func patternToRegex(pattern string) *regexp.Regexp {
 	exp, _ := regexp.Compile(prefix + strings.Join(pat, `.*`))
 
 	return exp
+}
+
+func stripSuffixSlash(str string) string {
+	return exprStripSuffixSlash.ReplaceAllString(str, "")
+}
+
+func ensureSuffixSlash(str string) string {
+	return exprStripSuffixSlash.ReplaceAllString(str, "") + "/"
 }
