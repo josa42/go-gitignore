@@ -1,200 +1,1073 @@
 [
   {
+    "skip": false,
     "name": "Simple: data",
     "pattern": "/data",
     "file_path": "data",
     "ignored": true
   },
   {
+    "skip": false,
     "name": "Simple: data/file",
     "pattern": "/data",
     "file_path": "data/file",
     "ignored": true
   },
   {
+    "skip": false,
     "name": "Simple: data.json",
     "pattern": "/data",
     "file_path": "data.json",
     "ignored": false
   },
   {
+    "skip": false,
     "name": "basic: ignore.txt",
     "pattern": "ignore.txt",
     "file_path": "ignore.txt",
     "ignored": true
   },
   {
+    "skip": false,
     "name": "basic: bar/ignore.txt",
     "pattern": "ignore.txt",
     "file_path": "bar/ignore.txt",
     "ignored": true
   },
   {
+    "skip": false,
     "name": "basic: include.txt",
     "pattern": "ignore.txt",
     "file_path": "include.txt",
     "ignored": false
   },
   {
+    "skip": false,
     "name": "basic: bar/include.txt",
     "pattern": "ignore.txt",
     "file_path": "bar/include.txt",
     "ignored": false
   },
   {
+    "skip": false,
     "name": "basic: other.txt",
     "pattern": "ignore.txt",
     "file_path": "other.txt",
     "ignored": false
   },
   {
+    "skip": false,
     "name": "basic: bar/other.txt",
     "pattern": "ignore.txt",
     "file_path": "bar/other.txt",
     "ignored": false
   },
   {
+    "skip": false,
     "name": "empty: foo.txt",
     "pattern": "",
     "file_path": "foo.txt",
     "ignored": false
   },
   {
+    "skip": false,
     "name": "empty: bar/foo.txt",
     "pattern": "",
     "file_path": "bar/foo.txt",
     "ignored": false
   },
   {
+    "skip": false,
     "name": "Wildcards: data/ignore.txt",
     "pattern": "data/*\n!data/keep.txt\n/rootdata/*\n!keep.all.txt\ntmp/",
     "file_path": "data/ignore.txt",
     "ignored": true
   },
   {
+    "skip": false,
     "name": "Wildcards: data/keep.txt",
     "pattern": "data/*\n!data/keep.txt\n/rootdata/*\n!keep.all.txt\ntmp/",
     "file_path": "data/keep.txt",
     "ignored": false
   },
   {
+    "skip": false,
     "name": "Wildcards: rootdata/data/ignore.txt",
     "pattern": "data/*\n!data/keep.txt\n/rootdata/*\n!keep.all.txt\ntmp/",
     "file_path": "rootdata/data/ignore.txt",
     "ignored": true
   },
   {
+    "skip": false,
     "name": "Wildcards: data/data/ignore.txt",
     "pattern": "data/*\n!data/keep.txt\n/rootdata/*\n!keep.all.txt\ntmp/",
     "file_path": "data/data/ignore.txt",
     "ignored": true
   },
   {
+    "skip": false,
     "name": "Wildcards: other/data/ignore.txt",
     "pattern": "data/*\n!data/keep.txt\n/rootdata/*\n!keep.all.txt\ntmp/",
     "file_path": "other/data/ignore.txt",
     "ignored": false
   },
   {
+    "skip": false,
     "name": "Wildcards: other/data/keep.txt",
     "pattern": "data/*\n!data/keep.txt\n/rootdata/*\n!keep.all.txt\ntmp/",
     "file_path": "other/data/keep.txt",
     "ignored": false
   },
   {
+    "skip": false,
     "name": "Wildcards: tmp",
     "pattern": "data/*\n!data/keep.txt\n/rootdata/*\n!keep.all.txt\ntmp/",
     "file_path": "tmp",
     "ignored": false
   },
   {
+    "skip": false,
     "name": "Wildcards: tmp/file",
     "pattern": "data/*\n!data/keep.txt\n/rootdata/*\n!keep.all.txt\ntmp/",
     "file_path": "tmp/file",
     "ignored": true
   },
   {
+    "skip": false,
     "name": "Wildcards: sub/tmp",
     "pattern": "data/*\n!data/keep.txt\n/rootdata/*\n!keep.all.txt\ntmp/",
     "file_path": "sub/tmp",
     "ignored": false
   },
   {
+    "skip": false,
     "name": "Wildcards: sub/tmp/file",
     "pattern": "data/*\n!data/keep.txt\n/rootdata/*\n!keep.all.txt\ntmp/",
     "file_path": "sub/tmp/file",
     "ignored": true
   },
   {
+    "skip": false,
     "name": "star matching: foo.txt",
     "pattern": "/*.txt",
     "file_path": "foo.txt",
     "ignored": true
   },
   {
+    "skip": false,
     "name": "star matching: somedir/foo.txt",
     "pattern": "/*.txt",
     "file_path": "somedir/foo.txt",
     "ignored": false
   },
   {
+    "skip": false,
     "name": "double star prefix: hello/foo.txt",
     "pattern": "**/foo.txt",
     "file_path": "hello/foo.txt",
     "ignored": true
   },
   {
+    "skip": false,
     "name": "double star prefix: some/dirs/foo.txt",
     "pattern": "**/foo.txt",
     "file_path": "some/dirs/foo.txt",
     "ignored": true
   },
   {
+    "skip": false,
     "name": "double star suffix: hello/foo.txt",
     "pattern": "/hello/**",
     "file_path": "hello/foo.txt",
     "ignored": true
   },
   {
+    "skip": false,
     "name": "double star suffix: some/dirs/foo.txt",
     "pattern": "/hello/**",
     "file_path": "some/dirs/foo.txt",
     "ignored": false
   },
   {
+    "skip": false,
     "name": "double star in path: hello/world.txt",
     "pattern": "/hello/**/world.txt",
     "file_path": "hello/world.txt",
     "ignored": true
   },
   {
+    "skip": false,
     "name": "double star in path: hello/stuff/world.txt",
     "pattern": "/hello/**/world.txt",
     "file_path": "hello/stuff/world.txt",
     "ignored": true
   },
   {
+    "skip": false,
     "name": "double star in path: some/dirs/foo.txt",
     "pattern": "/hello/**/world.txt",
     "file_path": "some/dirs/foo.txt",
     "ignored": false
   },
   {
+    "skip": false,
     "name": "negate doubl start patterns: hello/foo.txt",
     "pattern": "!**/foo.txt",
     "file_path": "hello/foo.txt",
     "ignored": false
   },
   {
+    "skip": false,
     "name": "negate doubl start patterns: hello/foo.txt",
     "pattern": "!**/foo.txt",
     "file_path": "hello/foo.txt",
     "ignored": false
   },
   {
+    "skip": false,
     "name": "negate doubl start patterns: hello/world.txt",
     "pattern": "!**/foo.txt",
     "file_path": "hello/world.txt",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "gitignore.rs: a_dir/a_nested_dir/deeper_still/hola.greeting",
+    "pattern": "*.no\nnot_me_either/\n/or_even_me",
+    "file_path": "a_dir/a_nested_dir/deeper_still/hola.greeting",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "gitignore.rs: a_dir/a_nested_dir/deeper_still/hello.greeting",
+    "pattern": "*.no\nnot_me_either/\n/or_even_me",
+    "file_path": "a_dir/a_nested_dir/deeper_still/hello.greeting",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "gitignore.rs: a_dir/a_nested_dir/.gitignore",
+    "pattern": "*.no\nnot_me_either/\n/or_even_me",
+    "file_path": "a_dir/a_nested_dir/.gitignore",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "gitignore.rs: also_include_me",
+    "pattern": "*.no\nnot_me_either/\n/or_even_me",
+    "file_path": "also_include_me",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "gitignore.rs: include_me",
+    "pattern": "*.no\nnot_me_either/\n/or_even_me",
+    "file_path": "include_me",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "gitignore.rs: not_me.no",
+    "pattern": "*.no\nnot_me_either/\n/or_even_me",
+    "file_path": "not_me.no",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "gitignore.rs: not_me_either/i_shouldnt_be_included",
+    "pattern": "*.no\nnot_me_either/\n/or_even_me",
+    "file_path": "not_me_either/i_shouldnt_be_included",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "gitignore.rs: or_even_me",
+    "pattern": "*.no\nnot_me_either/\n/or_even_me",
+    "file_path": "or_even_me",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "gitignore.rs: or_me.no",
+    "pattern": "*.no\nnot_me_either/\n/or_even_me",
+    "file_path": "or_me.no",
+    "ignored": true
+  },
+  {
+    "skip": true,
+    "name": "mherrmann/gitignore_parser: simple: main.py",
+    "pattern": "__pycache__/\n\n*.py[cod]",
+    "file_path": "main.py",
+    "ignored": false
+  },
+  {
+    "skip": true,
+    "name": "mherrmann/gitignore_parser: simple: main.pyc",
+    "pattern": "__pycache__/\n\n*.py[cod]",
+    "file_path": "main.pyc",
+    "ignored": true
+  },
+  {
+    "skip": true,
+    "name": "mherrmann/gitignore_parser: simple: dir/main.pyc",
+    "pattern": "__pycache__/\n\n*.py[cod]",
+    "file_path": "dir/main.pyc",
+    "ignored": true
+  },
+  {
+    "skip": true,
+    "name": "mherrmann/gitignore_parser: simple: __pycache__",
+    "pattern": "__pycache__/\n\n*.py[cod]",
+    "file_path": "__pycache__",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "mherrmann/gitignore_parser: wildcard: hello.txt",
+    "pattern": "hello.*",
+    "file_path": "hello.txt",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "mherrmann/gitignore_parser: wildcard: hello.foobar/",
+    "pattern": "hello.*",
+    "file_path": "hello.foobar/",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "mherrmann/gitignore_parser: wildcard: dir/hello.txt",
+    "pattern": "hello.*",
+    "file_path": "dir/hello.txt",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "mherrmann/gitignore_parser: wildcard: hello.",
+    "pattern": "hello.*",
+    "file_path": "hello.",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "mherrmann/gitignore_parser: wildcard: hello",
+    "pattern": "hello.*",
+    "file_path": "hello",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "mherrmann/gitignore_parser: wildcard: helloX",
+    "pattern": "hello.*",
+    "file_path": "helloX",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "mherrmann/gitignore_parser: anchored_wildcard: hello.txt",
+    "pattern": "/hello.*",
+    "file_path": "hello.txt",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "mherrmann/gitignore_parser: anchored_wildcard: hello.c",
+    "pattern": "/hello.*",
+    "file_path": "hello.c",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "mherrmann/gitignore_parser: anchored_wildcard: a/hello.java",
+    "pattern": "/hello.*",
+    "file_path": "a/hello.java",
+    "ignored": false
+  },
+  {
+    "skip": true,
+    "name": "mherrmann/gitignore_parser: trailingspaces: ignoretrailingspace",
+    "pattern": "ignoretrailingspace \nnotignoredspace\\ \npartiallyignoredspace\\  \npartiallyignoredspace2 \\  \nnotignoredmultiplespace\\ \\ \\ ",
+    "file_path": "ignoretrailingspace",
+    "ignored": true
+  },
+  {
+    "skip": true,
+    "name": "mherrmann/gitignore_parser: trailingspaces: ignoretrailingspace ",
+    "pattern": "ignoretrailingspace \nnotignoredspace\\ \npartiallyignoredspace\\  \npartiallyignoredspace2 \\  \nnotignoredmultiplespace\\ \\ \\ ",
+    "file_path": "ignoretrailingspace ",
+    "ignored": false
+  },
+  {
+    "skip": true,
+    "name": "mherrmann/gitignore_parser: trailingspaces: partiallyignoredspace ",
+    "pattern": "ignoretrailingspace \nnotignoredspace\\ \npartiallyignoredspace\\  \npartiallyignoredspace2 \\  \nnotignoredmultiplespace\\ \\ \\ ",
+    "file_path": "partiallyignoredspace ",
+    "ignored": true
+  },
+  {
+    "skip": true,
+    "name": "mherrmann/gitignore_parser: trailingspaces: partiallyignoredspace  ",
+    "pattern": "ignoretrailingspace \nnotignoredspace\\ \npartiallyignoredspace\\  \npartiallyignoredspace2 \\  \nnotignoredmultiplespace\\ \\ \\ ",
+    "file_path": "partiallyignoredspace  ",
+    "ignored": false
+  },
+  {
+    "skip": true,
+    "name": "mherrmann/gitignore_parser: trailingspaces: partiallyignoredspace",
+    "pattern": "ignoretrailingspace \nnotignoredspace\\ \npartiallyignoredspace\\  \npartiallyignoredspace2 \\  \nnotignoredmultiplespace\\ \\ \\ ",
+    "file_path": "partiallyignoredspace",
+    "ignored": false
+  },
+  {
+    "skip": true,
+    "name": "mherrmann/gitignore_parser: trailingspaces: partiallyignoredspace2  ",
+    "pattern": "ignoretrailingspace \nnotignoredspace\\ \npartiallyignoredspace\\  \npartiallyignoredspace2 \\  \nnotignoredmultiplespace\\ \\ \\ ",
+    "file_path": "partiallyignoredspace2  ",
+    "ignored": true
+  },
+  {
+    "skip": true,
+    "name": "mherrmann/gitignore_parser: trailingspaces: partiallyignoredspace2   ",
+    "pattern": "ignoretrailingspace \nnotignoredspace\\ \npartiallyignoredspace\\  \npartiallyignoredspace2 \\  \nnotignoredmultiplespace\\ \\ \\ ",
+    "file_path": "partiallyignoredspace2   ",
+    "ignored": false
+  },
+  {
+    "skip": true,
+    "name": "mherrmann/gitignore_parser: trailingspaces: partiallyignoredspace2 ",
+    "pattern": "ignoretrailingspace \nnotignoredspace\\ \npartiallyignoredspace\\  \npartiallyignoredspace2 \\  \nnotignoredmultiplespace\\ \\ \\ ",
+    "file_path": "partiallyignoredspace2 ",
+    "ignored": false
+  },
+  {
+    "skip": true,
+    "name": "mherrmann/gitignore_parser: trailingspaces: partiallyignoredspace2",
+    "pattern": "ignoretrailingspace \nnotignoredspace\\ \npartiallyignoredspace\\  \npartiallyignoredspace2 \\  \nnotignoredmultiplespace\\ \\ \\ ",
+    "file_path": "partiallyignoredspace2",
+    "ignored": false
+  },
+  {
+    "skip": true,
+    "name": "mherrmann/gitignore_parser: trailingspaces: notignoredspace ",
+    "pattern": "ignoretrailingspace \nnotignoredspace\\ \npartiallyignoredspace\\  \npartiallyignoredspace2 \\  \nnotignoredmultiplespace\\ \\ \\ ",
+    "file_path": "notignoredspace ",
+    "ignored": true
+  },
+  {
+    "skip": true,
+    "name": "mherrmann/gitignore_parser: trailingspaces: notignoredspace",
+    "pattern": "ignoretrailingspace \nnotignoredspace\\ \npartiallyignoredspace\\  \npartiallyignoredspace2 \\  \nnotignoredmultiplespace\\ \\ \\ ",
+    "file_path": "notignoredspace",
+    "ignored": false
+  },
+  {
+    "skip": true,
+    "name": "mherrmann/gitignore_parser: trailingspaces: notignoredmultiplespace   ",
+    "pattern": "ignoretrailingspace \nnotignoredspace\\ \npartiallyignoredspace\\  \npartiallyignoredspace2 \\  \nnotignoredmultiplespace\\ \\ \\ ",
+    "file_path": "notignoredmultiplespace   ",
+    "ignored": true
+  },
+  {
+    "skip": true,
+    "name": "mherrmann/gitignore_parser: trailingspaces: notignoredmultiplespace",
+    "pattern": "ignoretrailingspace \nnotignoredspace\\ \npartiallyignoredspace\\  \npartiallyignoredspace2 \\  \nnotignoredmultiplespace\\ \\ \\ ",
+    "file_path": "notignoredmultiplespace",
+    "ignored": false
+  },
+  {
+    "skip": true,
+    "name": "mherrmann/gitignore_parser: comment: somematch",
+    "pattern": "somematch\n\n#realcomment\n\nothermatch\n\n\\#imnocomment",
+    "file_path": "somematch",
+    "ignored": true
+  },
+  {
+    "skip": true,
+    "name": "mherrmann/gitignore_parser: comment: #realcomment",
+    "pattern": "somematch\n\n#realcomment\n\nothermatch\n\n\\#imnocomment",
+    "file_path": "#realcomment",
+    "ignored": false
+  },
+  {
+    "skip": true,
+    "name": "mherrmann/gitignore_parser: comment: othermatch",
+    "pattern": "somematch\n\n#realcomment\n\nothermatch\n\n\\#imnocomment",
+    "file_path": "othermatch",
+    "ignored": true
+  },
+  {
+    "skip": true,
+    "name": "mherrmann/gitignore_parser: comment: #imnocomment",
+    "pattern": "somematch\n\n#realcomment\n\nothermatch\n\n\\#imnocomment",
+    "file_path": "#imnocomment",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "mherrmann/gitignore_parser: ignore_directory: .venv",
+    "pattern": ".venv/",
+    "file_path": ".venv",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "mherrmann/gitignore_parser: ignore_directory: .venv/folder",
+    "pattern": ".venv/",
+    "file_path": ".venv/folder",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "mherrmann/gitignore_parser: ignore_directory: .venv/file.txt",
+    "pattern": ".venv/",
+    "file_path": ".venv/file.txt",
+    "ignored": true
+  },
+  {
+    "skip": true,
+    "name": "mherrmann/gitignore_parser: directory_asterisk: .venv",
+    "pattern": ".venv/*",
+    "file_path": ".venv",
+    "ignored": false
+  },
+  {
+    "skip": true,
+    "name": "mherrmann/gitignore_parser: directory_asterisk: .venv/folder",
+    "pattern": ".venv/*",
+    "file_path": ".venv/folder",
+    "ignored": true
+  },
+  {
+    "skip": true,
+    "name": "mherrmann/gitignore_parser: directory_asterisk: .venv/file.txt",
+    "pattern": ".venv/*",
+    "file_path": ".venv/file.txt",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "mherrmann/gitignore_parser: negation: trash.ignore",
+    "pattern": "*.ignore\n!keep.ignore",
+    "file_path": "trash.ignore",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "mherrmann/gitignore_parser: negation: keep.ignore",
+    "pattern": "*.ignore\n!keep.ignore",
+    "file_path": "keep.ignore",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "mherrmann/gitignore_parser: negation: waste.ignore",
+    "pattern": "*.ignore\n!keep.ignore",
+    "file_path": "waste.ignore",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "mherrmann/gitignore_parser: double_asterisks: foo/hello/Bar",
+    "pattern": "foo/**/Bar",
+    "file_path": "foo/hello/Bar",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "mherrmann/gitignore_parser: double_asterisks: foo/world/Bar",
+    "pattern": "foo/**/Bar",
+    "file_path": "foo/world/Bar",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "mherrmann/gitignore_parser: double_asterisks: foo/Bar",
+    "pattern": "foo/**/Bar",
+    "file_path": "foo/Bar",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "mherrmann/gitignore_parser: single_asterisk: file.txt",
+    "pattern": "*",
+    "file_path": "file.txt",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "mherrmann/gitignore_parser: single_asterisk: directory",
+    "pattern": "*",
+    "file_path": "directory",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "mherrmann/gitignore_parser: single_asterisk: directory-trailing/",
+    "pattern": "*",
+    "file_path": "directory-trailing/",
+    "ignored": true
+  },
+  {
+    "skip": true,
+    "name": "hawknewton/gitignore-parser: given a patern without slashes: foobar",
+    "pattern": "foo*bar",
+    "file_path": "foobar",
+    "ignored": true
+  },
+  {
+    "skip": true,
+    "name": "hawknewton/gitignore-parser: given a patern without slashes: foo123bar",
+    "pattern": "foo*bar",
+    "file_path": "foo123bar",
+    "ignored": true
+  },
+  {
+    "skip": true,
+    "name": "hawknewton/gitignore-parser: given a patern without slashes: bar",
+    "pattern": "foo*bar",
+    "file_path": "bar",
+    "ignored": false
+  },
+  {
+    "skip": true,
+    "name": "hawknewton/gitignore-parser: given a patern without slashes: foobar/",
+    "pattern": "foo*bar",
+    "file_path": "foobar/",
+    "ignored": true
+  },
+  {
+    "skip": true,
+    "name": "hawknewton/gitignore-parser: given a patern without slashes: foobar123/",
+    "pattern": "foo*bar",
+    "file_path": "foobar123/",
+    "ignored": false
+  },
+  {
+    "skip": true,
+    "name": "hawknewton/gitignore-parser: given a patern without slashes: foobar",
+    "pattern": "foo*bar",
+    "file_path": "foobar",
+    "ignored": true
+  },
+  {
+    "skip": true,
+    "name": "hawknewton/gitignore-parser: given a patern without slashes: test",
+    "pattern": "foo*bar",
+    "file_path": "test",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with unescaped trailing spaces: foo",
+    "pattern": "foo*  ",
+    "file_path": "foo",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with unescaped trailing spaces: foo/",
+    "pattern": "foo*  ",
+    "file_path": "foo/",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with unescaped trailing spaces: bar/",
+    "pattern": "foo*  ",
+    "file_path": "bar/",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with unescaped trailing spaces: foobar",
+    "pattern": "foo*  ",
+    "file_path": "foobar",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with unescaped trailing spaces: test",
+    "pattern": "foo*  ",
+    "file_path": "test",
+    "ignored": false
+  },
+  {
+    "skip": true,
+    "name": "hawknewton/gitignore-parser: given a pattern with escaped trailing spaces: foo123  ",
+    "pattern": "foo*\\ \\ ",
+    "file_path": "foo123  ",
+    "ignored": true
+  },
+  {
+    "skip": true,
+    "name": "hawknewton/gitignore-parser: given a pattern with escaped trailing spaces: foo123 ",
+    "pattern": "foo*\\ \\ ",
+    "file_path": "foo123 ",
+    "ignored": false
+  },
+  {
+    "skip": true,
+    "name": "hawknewton/gitignore-parser: given a pattern with escaped trailing spaces: foo123  /",
+    "pattern": "foo*\\ \\ ",
+    "file_path": "foo123  /",
+    "ignored": true
+  },
+  {
+    "skip": true,
+    "name": "hawknewton/gitignore-parser: given a pattern with escaped trailing spaces: foo123 /",
+    "pattern": "foo*\\ \\ ",
+    "file_path": "foo123 /",
+    "ignored": false
+  },
+  {
+    "skip": true,
+    "name": "hawknewton/gitignore-parser: given a pattern with escaped trailing spaces: foobar",
+    "pattern": "foo*\\ \\ ",
+    "file_path": "foobar",
+    "ignored": false
+  },
+  {
+    "skip": true,
+    "name": "hawknewton/gitignore-parser: given a pattern with escaped trailing spaces: test",
+    "pattern": "foo*\\ \\ ",
+    "file_path": "test",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with a leading #: #foo",
+    "pattern": "#foo",
+    "file_path": "#foo",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with a leading #: foo",
+    "pattern": "#foo",
+    "file_path": "foo",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with a leading #: foobar",
+    "pattern": "#foo",
+    "file_path": "foobar",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with a leading #: #foo",
+    "pattern": "#foo",
+    "file_path": "#foo",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with a leading #: foo",
+    "pattern": "#foo",
+    "file_path": "foo",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with a leading #: #foo/",
+    "pattern": "#foo",
+    "file_path": "#foo/",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with a leading #: foo/",
+    "pattern": "#foo",
+    "file_path": "foo/",
+    "ignored": false
+  },
+  {
+    "skip": true,
+    "name": "hawknewton/gitignore-parser: given a pattern ending with a slash: foo",
+    "pattern": "foo*/",
+    "file_path": "foo",
+    "ignored": false
+  },
+  {
+    "skip": true,
+    "name": "hawknewton/gitignore-parser: given a pattern ending with a slash: foo/",
+    "pattern": "foo*/",
+    "file_path": "foo/",
+    "ignored": true
+  },
+  {
+    "skip": true,
+    "name": "hawknewton/gitignore-parser: given a pattern ending with a slash: foo123/",
+    "pattern": "foo*/",
+    "file_path": "foo123/",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern starting with **: foo",
+    "pattern": "**/foo",
+    "file_path": "foo",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern starting with **: bar",
+    "pattern": "**/foo",
+    "file_path": "bar",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern starting with **: foo/",
+    "pattern": "**/foo",
+    "file_path": "foo/",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern starting with **: bar/",
+    "pattern": "**/foo",
+    "file_path": "bar/",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with a leading slash: foo",
+    "pattern": "/foo",
+    "file_path": "foo",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with a leading slash: bar",
+    "pattern": "/foo",
+    "file_path": "bar",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with a leading slash: foo/",
+    "pattern": "/foo",
+    "file_path": "foo/",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with a leading slash: bar/",
+    "pattern": "/foo",
+    "file_path": "bar/",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with a leading slash: bar",
+    "pattern": "/foo",
+    "file_path": "bar",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with multiple slashes: foo",
+    "pattern": "foo/bar/baz",
+    "file_path": "foo",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with multiple slashes: foo/",
+    "pattern": "foo/bar/baz",
+    "file_path": "foo/",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with multiple slashes: baz",
+    "pattern": "foo/bar/baz",
+    "file_path": "baz",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with multiple slashes: baz/",
+    "pattern": "foo/bar/baz",
+    "file_path": "baz/",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with multiple slashes: test",
+    "pattern": "foo/bar/baz",
+    "file_path": "test",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with multiple slashes: bar/baz",
+    "pattern": "foo/bar/baz",
+    "file_path": "bar/baz",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with a leading slash and multiple slashes: foo",
+    "pattern": "/foo/bar/baz",
+    "file_path": "foo",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with a leading slash and multiple slashes: foo/",
+    "pattern": "/foo/bar/baz",
+    "file_path": "foo/",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with a leading slash and multiple slashes: baz",
+    "pattern": "/foo/bar/baz",
+    "file_path": "baz",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with a leading slash and multiple slashes: baz/",
+    "pattern": "/foo/bar/baz",
+    "file_path": "baz/",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with a leading slash and multiple slashes: test",
+    "pattern": "/foo/bar/baz",
+    "file_path": "test",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with a leading slash and multiple slashes: bar/baz",
+    "pattern": "/foo/bar/baz",
+    "file_path": "bar/baz",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with multiple slashes and two asterisks: foo",
+    "pattern": "foo/**/baz",
+    "file_path": "foo",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with multiple slashes and two asterisks: foo/",
+    "pattern": "foo/**/baz",
+    "file_path": "foo/",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with multiple slashes and two asterisks: baz",
+    "pattern": "foo/**/baz",
+    "file_path": "baz",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with multiple slashes and two asterisks: baz/",
+    "pattern": "foo/**/baz",
+    "file_path": "baz/",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with multiple slashes and two asterisks: test",
+    "pattern": "foo/**/baz",
+    "file_path": "test",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with a leading slash and two asterisks: foo",
+    "pattern": "/**/baz",
+    "file_path": "foo",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with a leading slash and two asterisks: foo/",
+    "pattern": "/**/baz",
+    "file_path": "foo/",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with a leading slash and two asterisks: baz",
+    "pattern": "/**/baz",
+    "file_path": "baz",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with a leading slash and two asterisks: baz/",
+    "pattern": "/**/baz",
+    "file_path": "baz/",
+    "ignored": true
+  },
+  {
+    "skip": true,
+    "name": "hawknewton/gitignore-parser: given a pattern with a a trailing \"/**\": foo",
+    "pattern": "baz/**",
+    "file_path": "foo",
+    "ignored": false
+  },
+  {
+    "skip": true,
+    "name": "hawknewton/gitignore-parser: given a pattern with a a trailing \"/**\": baz",
+    "pattern": "baz/**",
+    "file_path": "baz",
+    "ignored": false
+  },
+  {
+    "skip": true,
+    "name": "hawknewton/gitignore-parser: given a pattern with a a trailing \"/**\": baz/",
+    "pattern": "baz/**",
+    "file_path": "baz/",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern of \" * *\": foo",
+    "pattern": "**",
+    "file_path": "foo",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern of \" * *\": baz/",
+    "pattern": "**",
+    "file_path": "baz/",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern of \" * *\": test",
+    "pattern": "**",
+    "file_path": "test",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern without a leading !: foo",
+    "pattern": "foo",
+    "file_path": "foo",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "hawknewton/gitignore-parser: given a pattern with a leading !: foo",
+    "pattern": "!foo",
+    "file_path": "foo",
     "ignored": false
   }
 ]

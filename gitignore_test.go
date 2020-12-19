@@ -41,6 +41,7 @@ func TestNewGitignoreFromFile_notFound(t *testing.T) {
 }
 
 type Case struct {
+	Skip     bool   `json:"skip"`
 	Name     string `json:"name"`
 	Pattern  string `json:"pattern"`
 	FilePath string `json:"file_path"`
@@ -56,6 +57,10 @@ func TestGitignore(t *testing.T) {
 
 	for _, c := range cases {
 		t.Run(c.Name, func(t *testing.T) {
+			if c.Skip {
+				t.Skip()
+			}
+
 			ignore := gitignore.NewGitignoreFromString(c.Pattern)
 
 			assert.Equal(t, c.Ignored, ignore.Match(c.FilePath))

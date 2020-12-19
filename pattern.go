@@ -1,7 +1,6 @@
 package gitignore
 
 import (
-	"fmt"
 	"regexp"
 	"strings"
 )
@@ -82,7 +81,6 @@ func normalize(line string) string {
 var splitExp = regexp.MustCompile(`\*\*(\/\*)?`)
 
 func patternToRegex(pattern string) *regexp.Regexp {
-	fmt.Printf("\n+ %s\n", pattern)
 
 	prefix := ""
 	if strings.HasPrefix(pattern, "/") {
@@ -99,12 +97,9 @@ func patternToRegex(pattern string) *regexp.Regexp {
 		innerPat := []string{}
 		for _, pi := range strings.Split(p, "*") {
 			innerPat = append(innerPat, regexp.QuoteMeta(stripSurroundingSlashes(pi)))
-			// fmt.Printf("| . %s\n", innerPat)
 		}
 		pat = append(pat, strings.Join(innerPat, `[^/]*`))
 	}
-
-	fmt.Printf("| = %s\n", prefix+strings.Join(pat, `(/.*/|/)`))
 
 	exp, _ := regexp.Compile(prefix + strings.Join(pat, `(.*|)`))
 
