@@ -1,3 +1,5 @@
+//go:generate go run generate/cases/main.go > testdata/cases.json
+
 package gitignore
 
 import (

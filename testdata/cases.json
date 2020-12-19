@@ -1,6 +1,181 @@
 [
   {
     "skip": false,
+    "name": "pattern: .git",
+    "pattern": ".git*",
+    "file_path": ".git",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "pattern: .gitignore",
+    "pattern": ".git*",
+    "file_path": ".gitignore",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "pattern: bar/foo/test.txt",
+    "pattern": "/foo/**/*.txt",
+    "file_path": "bar/foo/test.txt",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "pattern: bar/foo/test.txt",
+    "pattern": "foo/**/*.txt",
+    "file_path": "bar/foo/test.txt",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "pattern: barfoo/foo.txt",
+    "pattern": "foo/foo.txt",
+    "file_path": "barfoo/foo.txt",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "pattern: bin",
+    "pattern": "/bin",
+    "file_path": "bin",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "pattern: data/foo/foo.txt",
+    "pattern": "foo/foo.txt",
+    "file_path": "data/foo/foo.txt",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "pattern: foo.txt",
+    "pattern": "",
+    "file_path": "foo.txt",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "pattern: foo.txt",
+    "pattern": "**/*.txt",
+    "file_path": "foo.txt",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "pattern: foo.txt",
+    "pattern": "*.txt",
+    "file_path": "foo.txt",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "pattern: foo.txt",
+    "pattern": "/**/*.txt",
+    "file_path": "foo.txt",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "pattern: foo.txt",
+    "pattern": "/*.txt",
+    "file_path": "foo.txt",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "pattern: foo.txt",
+    "pattern": "/bar/**/*.txt",
+    "file_path": "foo.txt",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "pattern: foo.txt",
+    "pattern": "/foo.txt",
+    "file_path": "foo.txt",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "pattern: foo.txt",
+    "pattern": "foo.txt",
+    "file_path": "foo.txt",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "pattern: foo/bar/test.txt",
+    "pattern": "/foo/**/*.txt",
+    "file_path": "foo/bar/test.txt",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "pattern: foo/bar/test.txt",
+    "pattern": "foo/**/*.txt",
+    "file_path": "foo/bar/test.txt",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "pattern: foo/foo.txt",
+    "pattern": "*.txt",
+    "file_path": "foo/foo.txt",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "pattern: foo/foo.txt",
+    "pattern": "/*.txt",
+    "file_path": "foo/foo.txt",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "pattern: foo/foo.txt",
+    "pattern": "/foo.txt",
+    "file_path": "foo/foo.txt",
+    "ignored": false
+  },
+  {
+    "skip": false,
+    "name": "pattern: foo/foo.txt",
+    "pattern": "foo.txt",
+    "file_path": "foo/foo.txt",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "pattern: foo/foo.txt",
+    "pattern": "foo/foo.txt",
+    "file_path": "foo/foo.txt",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "pattern: foo/test.txt",
+    "pattern": "/foo/**/*.txt",
+    "file_path": "foo/test.txt",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "pattern: foo/test.txt",
+    "pattern": "foo/**/*.txt",
+    "file_path": "foo/test.txt",
+    "ignored": true
+  },
+  {
+    "skip": false,
+    "name": "pattern: vendor/bin",
+    "pattern": "/bin",
+    "file_path": "vendor/bin",
+    "ignored": false
+  },
+  {
+    "skip": false,
     "name": "Simple: data",
     "pattern": "/data",
     "file_path": "data",
@@ -232,63 +407,63 @@
   },
   {
     "skip": false,
-    "name": "gitignore.rs: a_dir/a_nested_dir/deeper_still/hola.greeting",
+    "name": "nathankleyn/gitignore.rs: a_dir/a_nested_dir/deeper_still/hola.greeting",
     "pattern": "*.no\nnot_me_either/\n/or_even_me",
     "file_path": "a_dir/a_nested_dir/deeper_still/hola.greeting",
     "ignored": false
   },
   {
     "skip": false,
-    "name": "gitignore.rs: a_dir/a_nested_dir/deeper_still/hello.greeting",
+    "name": "nathankleyn/gitignore.rs: a_dir/a_nested_dir/deeper_still/hello.greeting",
     "pattern": "*.no\nnot_me_either/\n/or_even_me",
     "file_path": "a_dir/a_nested_dir/deeper_still/hello.greeting",
     "ignored": false
   },
   {
     "skip": false,
-    "name": "gitignore.rs: a_dir/a_nested_dir/.gitignore",
+    "name": "nathankleyn/gitignore.rs: a_dir/a_nested_dir/.gitignore",
     "pattern": "*.no\nnot_me_either/\n/or_even_me",
     "file_path": "a_dir/a_nested_dir/.gitignore",
     "ignored": false
   },
   {
     "skip": false,
-    "name": "gitignore.rs: also_include_me",
+    "name": "nathankleyn/gitignore.rs: also_include_me",
     "pattern": "*.no\nnot_me_either/\n/or_even_me",
     "file_path": "also_include_me",
     "ignored": false
   },
   {
     "skip": false,
-    "name": "gitignore.rs: include_me",
+    "name": "nathankleyn/gitignore.rs: include_me",
     "pattern": "*.no\nnot_me_either/\n/or_even_me",
     "file_path": "include_me",
     "ignored": false
   },
   {
     "skip": false,
-    "name": "gitignore.rs: not_me.no",
+    "name": "nathankleyn/gitignore.rs: not_me.no",
     "pattern": "*.no\nnot_me_either/\n/or_even_me",
     "file_path": "not_me.no",
     "ignored": true
   },
   {
     "skip": false,
-    "name": "gitignore.rs: not_me_either/i_shouldnt_be_included",
+    "name": "nathankleyn/gitignore.rs: not_me_either/i_shouldnt_be_included",
     "pattern": "*.no\nnot_me_either/\n/or_even_me",
     "file_path": "not_me_either/i_shouldnt_be_included",
     "ignored": true
   },
   {
     "skip": false,
-    "name": "gitignore.rs: or_even_me",
+    "name": "nathankleyn/gitignore.rs: or_even_me",
     "pattern": "*.no\nnot_me_either/\n/or_even_me",
     "file_path": "or_even_me",
     "ignored": true
   },
   {
     "skip": false,
-    "name": "gitignore.rs: or_me.no",
+    "name": "nathankleyn/gitignore.rs: or_me.no",
     "pattern": "*.no\nnot_me_either/\n/or_even_me",
     "file_path": "or_me.no",
     "ignored": true
