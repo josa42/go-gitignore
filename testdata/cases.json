@@ -702,7 +702,6 @@
     "ignored": true
   },
   {
-    "skip": true,
     "name": "hawknewton/gitignore-parser: given a patern without slashes: foobar123/",
     "pattern": "foo*bar",
     "file_path": "foobar123/",
@@ -831,7 +830,6 @@
     "ignored": false
   },
   {
-    "skip": true,
     "name": "hawknewton/gitignore-parser: given a pattern ending with a slash: foo",
     "pattern": "foo*/",
     "file_path": "foo",

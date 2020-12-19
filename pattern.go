@@ -20,21 +20,9 @@ var (
 func (p Pattern) Match(path string) bool {
 
 	if line := normalize(p.line); line != "" {
-		if isPattern(line) {
-			return patternToRegex(line).MatchString(path)
-		}
 
-		if isRoot(line) {
-			return "/"+path == line || strings.HasPrefix("/"+path, ensureSuffixSlash(line))
-		}
-
-		if isFilePath(line) {
-			return filename(path) == line
-		}
-
-		if isDirPath(line) {
-			return dirname(path) == dirname(line)
-		}
+		// fmt.Printf("line = '%s'\npath = '%s'\n", p.line, path)
+		return patternToRegex(line).MatchString(path)
 	}
 
 	return false
@@ -53,12 +41,8 @@ func dirname(line string) string {
 	return ""
 }
 
-func isFilePath(line string) bool {
-	return !isPattern(line) && !strings.HasSuffix(line, "/")
-}
-
 func isDirPath(line string) bool {
-	return !isPattern(line) && strings.HasSuffix(line, "/")
+	return strings.HasSuffix(line, "/")
 }
 
 // See: https://git-scm.com/docs/gitignore
@@ -66,16 +50,17 @@ func isDirPath(line string) bool {
 // The pattern foo/ will match a directory foo and paths underneath it, but will
 // not match a regular file or a symbolic link foo (this is consistent with the
 // way how pathspec works in general in Git)
-func isRoot(line string) bool {
+func isRootPath(line string) bool {
 	return strings.Contains(stripSuffixSlash(line), "/")
 }
 
 func isPattern(line string) bool {
-	return strings.Contains(line, "*")
+	return true
 }
 
 func normalize(line string) string {
-	if !strings.HasPrefix(line, "/") && isRoot(line) {
+	line = strings.TrimSpace(line)
+	if !strings.HasPrefix(line, "/") && isRootPath(line) {
 		return "/" + line
 	}
 	return line
@@ -88,6 +73,9 @@ func patternToRegex(pattern string) *regexp.Regexp {
 		prefix = "^"
 		pattern = pattern[1:]
 	}
+
+	// root := isRootPath(pattern)
+	dir := isDirPath(pattern)
 
 	if strings.Contains(pattern, "**") && !strings.HasPrefix(pattern, "**") {
 		prefix = "^"
@@ -104,7 +92,16 @@ func patternToRegex(pattern string) *regexp.Regexp {
 		pat = append(pat, strings.Join(innerPat, `[^/]*`))
 	}
 
-	exp, _ := regexp.Compile(prefix + strings.Join(pat, `(.*|)`))
+	exprStr := prefix + strings.Join(pat, `(.*|)`)
+
+	if dir {
+		exprStr += "(/.*)"
+	} else {
+		exprStr += "($|/)"
+	}
+
+	// fmt.Println("expr =", exprStr)
+	exp, _ := regexp.Compile(exprStr)
 
 	return exp
 }
