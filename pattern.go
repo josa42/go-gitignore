@@ -15,6 +15,7 @@ var (
 	exprStripSuffixSlash    = regexp.MustCompile("/$")
 	exprSplitPattern        = regexp.MustCompile(`\*\*(\/\*)?`)
 	exprQuotedCharacterList = regexp.MustCompile(`\\\[([^\]]*)\\\]`)
+	exprQuotedSpace         = regexp.MustCompile(`\\ `)
 )
 
 func (p Pattern) Match(path string) bool {
@@ -59,7 +60,12 @@ func isPattern(line string) bool {
 }
 
 func normalize(line string) string {
+	quotedSpace := strings.HasSuffix(line, "\\ ")
+	// FIXME
 	line = strings.TrimSpace(line)
+	if quotedSpace {
+		line += " "
+	}
 	if !strings.HasPrefix(line, "/") && isRootPath(line) {
 		return "/" + line
 	}
@@ -109,6 +115,8 @@ func patternToRegex(pattern string) *regexp.Regexp {
 func quotePattern(str string) string {
 	str = stripSurroundingSlashes(str)
 	str = regexp.QuoteMeta(str)
+
+	str = strings.ReplaceAll(str, "\\\\ ", "\\s")
 
 	// do not quote character lists like [abc]
 	if m := exprQuotedCharacterList.FindAllStringSubmatch(str, -1); m != nil {

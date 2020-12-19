@@ -536,7 +536,6 @@
     "ignored": false
   },
   {
-    "skip": true,
     "name": "mherrmann/gitignore_parser: trailingspaces: notignoredspace ",
     "pattern": "ignoretrailingspace \nnotignoredspace\\ \npartiallyignoredspace\\  \npartiallyignoredspace2 \\  \nnotignoredmultiplespace\\ \\ \\ ",
     "file_path": "notignoredspace ",
@@ -549,7 +548,6 @@
     "ignored": false
   },
   {
-    "skip": true,
     "name": "mherrmann/gitignore_parser: trailingspaces: notignoredmultiplespace   ",
     "pattern": "ignoretrailingspace \nnotignoredspace\\ \npartiallyignoredspace\\  \npartiallyignoredspace2 \\  \nnotignoredmultiplespace\\ \\ \\ ",
     "file_path": "notignoredmultiplespace   ",
@@ -750,7 +748,6 @@
     "ignored": false
   },
   {
-    "skip": true,
     "name": "hawknewton/gitignore-parser: given a pattern with escaped trailing spaces: foo123  ",
     "pattern": "foo*\\ \\ ",
     "file_path": "foo123  ",
@@ -763,7 +760,6 @@
     "ignored": false
   },
   {
-    "skip": true,
     "name": "hawknewton/gitignore-parser: given a pattern with escaped trailing spaces: foo123  /",
     "pattern": "foo*\\ \\ ",
     "file_path": "foo123  /",

@@ -16,8 +16,6 @@ func NewGitignoreFromString(str string) Gitignore {
 	excludes := []Pattern{}
 
 	for _, l := range strings.Split(str, "\n") {
-		l = strings.TrimSpace(l)
-
 		if l != "" && !strings.HasPrefix(l, "#") {
 			if strings.HasPrefix(l, "!") {
 				excludes = append(excludes, Pattern{line: l[1:]})
