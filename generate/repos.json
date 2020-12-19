@@ -251,7 +251,6 @@
     ]
   },
   {
-    "skip": true,
     "name": "mherrmann/gitignore_parser: simple",
     "pattern": [
       "__pycache__/\n",
@@ -290,7 +289,6 @@
     ]
   },
   {
-    "skip": true,
     "name": "mherrmann/gitignore_parser: trailingspaces",
     "pattern": [
       "ignoretrailingspace ",
@@ -316,7 +314,6 @@
     ]
   },
   {
-    "skip": true,
     "name": "mherrmann/gitignore_parser: comment",
     "pattern": [
       "somematch\n",
@@ -343,7 +340,6 @@
     ]
   },
   {
-    "skip": true,
     "name": "mherrmann/gitignore_parser: directory_asterisk",
     "pattern": [
       ".venv/*"
@@ -389,7 +385,6 @@
     ]
   },
   {
-    "skip": true,
     "name": "hawknewton/gitignore-parser: given a patern without slashes",
     "pattern": [
       "foo*bar"
@@ -418,7 +413,6 @@
     ]
   },
   {
-    "skip": true,
     "name": "hawknewton/gitignore-parser: given a pattern with escaped trailing spaces",
     "pattern": [
       "foo*\\ \\ "
@@ -456,7 +450,6 @@
     ]
   },
   {
-    "skip": true,
     "name": "hawknewton/gitignore-parser: given a pattern ending with a slash",
     "pattern": [
       "foo*/"
@@ -546,7 +539,6 @@
     ]
   },
   {
-    "skip": true,
     "name": "hawknewton/gitignore-parser: given a pattern with a a trailing \"/**\"",
     "pattern": [
       "baz/**"

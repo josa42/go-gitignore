@@ -8,10 +8,12 @@ import (
 	"os"
 	"os/exec"
 	"strings"
+
+	"github.com/josa42/go-gitignore"
 )
 
 type Case struct {
-	Skip     bool   `json:"skip"`
+	Skip     bool   `json:"skip,omitempty"`
 	Name     string `json:"name"`
 	Pattern  string `json:"pattern"`
 	FilePath string `json:"file_path"`
@@ -19,7 +21,6 @@ type Case struct {
 }
 
 type Repo struct {
-	Skip    bool     `json:"skip"`
 	Name    string   `json:"name"`
 	Pattern []string `json:"pattern"`
 	Files   []string `json:"files"`
@@ -65,15 +66,17 @@ func generate(repo Repo) []Case {
 	pattern := strings.Join(repo.Pattern, "\n")
 	ioutil.WriteFile(".gitignore", []byte(pattern), 07755)
 
+	i := gitignore.NewGitignoreFromString(pattern)
+
 	for _, f := range repo.Files {
+		expectIgnored := ignored(f)
 		cases = append(cases, Case{
-			Skip:     repo.Skip,
+			Skip:     i.Match(f) != expectIgnored,
 			Name:     fmt.Sprintf("%s: %s", repo.Name, f),
 			Pattern:  pattern,
 			FilePath: f,
-			Ignored:  ignored(f),
+			Ignored:  expectIgnored,
 		})
-
 	}
 
 	return cases
