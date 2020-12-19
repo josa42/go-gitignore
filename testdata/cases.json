@@ -504,7 +504,6 @@
     "ignored": false
   },
   {
-    "skip": true,
     "name": "mherrmann/gitignore_parser: trailingspaces: partiallyignoredspace ",
     "pattern": "ignoretrailingspace \nnotignoredspace\\ \npartiallyignoredspace\\  \npartiallyignoredspace2 \\  \nnotignoredmultiplespace\\ \\ \\ ",
     "file_path": "partiallyignoredspace ",
@@ -523,7 +522,6 @@
     "ignored": false
   },
   {
-    "skip": true,
     "name": "mherrmann/gitignore_parser: trailingspaces: partiallyignoredspace2  ",
     "pattern": "ignoretrailingspace \nnotignoredspace\\ \npartiallyignoredspace\\  \npartiallyignoredspace2 \\  \nnotignoredmultiplespace\\ \\ \\ ",
     "file_path": "partiallyignoredspace2  ",
