@@ -408,14 +408,12 @@
     "ignored": false
   },
   {
-    "skip": true,
     "name": "mherrmann/gitignore_parser: simple: main.pyc",
     "pattern": "__pycache__/\n\n*.py[cod]",
     "file_path": "main.pyc",
     "ignored": true
   },
   {
-    "skip": true,
     "name": "mherrmann/gitignore_parser: simple: dir/main.pyc",
     "pattern": "__pycache__/\n\n*.py[cod]",
     "file_path": "dir/main.pyc",

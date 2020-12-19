@@ -1,6 +1,7 @@
 package gitignore
 
 import (
+	"fmt"
 	"regexp"
 	"strings"
 )
@@ -10,8 +11,10 @@ type Pattern struct {
 }
 
 var (
-	exprStripPrefixSlash = regexp.MustCompile("^/")
-	exprStripSuffixSlash = regexp.MustCompile("/$")
+	exprStripPrefixSlash    = regexp.MustCompile("^/")
+	exprStripSuffixSlash    = regexp.MustCompile("/$")
+	exprSplitPattern        = regexp.MustCompile(`\*\*(\/\*)?`)
+	exprQuotedCharacterList = regexp.MustCompile(`\\\[([^\]]*)\\\]`)
 )
 
 func (p Pattern) Match(path string) bool {
@@ -78,8 +81,6 @@ func normalize(line string) string {
 	return line
 }
 
-var splitExp = regexp.MustCompile(`\*\*(\/\*)?`)
-
 func patternToRegex(pattern string) *regexp.Regexp {
 
 	prefix := ""
@@ -93,17 +94,33 @@ func patternToRegex(pattern string) *regexp.Regexp {
 	}
 
 	pat := []string{}
-	for _, p := range splitExp.Split(pattern, -1) { // strings.Split(patter, "**") {
+	for _, p := range exprSplitPattern.Split(pattern, -1) {
 		innerPat := []string{}
+
 		for _, pi := range strings.Split(p, "*") {
-			innerPat = append(innerPat, regexp.QuoteMeta(stripSurroundingSlashes(pi)))
+			innerPat = append(innerPat, quotePattern(pi))
 		}
+
 		pat = append(pat, strings.Join(innerPat, `[^/]*`))
 	}
 
 	exp, _ := regexp.Compile(prefix + strings.Join(pat, `(.*|)`))
 
 	return exp
+}
+
+func quotePattern(str string) string {
+	str = stripSurroundingSlashes(str)
+	str = regexp.QuoteMeta(str)
+
+	// do not quote character lists like [abc]
+	if m := exprQuotedCharacterList.FindAllStringSubmatch(str, -1); m != nil {
+		for _, find := range m {
+			str = strings.Replace(str, find[0], fmt.Sprintf(`[%s]+`, find[1]), 1)
+		}
+	}
+
+	return str
 }
 
 func stripSuffixSlash(str string) string {
