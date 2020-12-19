@@ -1,0 +1,14 @@
+name: test
+
+on: push
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ macos-latest, ubuntu-latest ]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - run: go test ./... -v
