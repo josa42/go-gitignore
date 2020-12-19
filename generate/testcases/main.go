@@ -57,32 +57,32 @@ var repos = []Repo{
 	},
 
 	// https://github.com/zabawaba99/go-gitignore/blob/master/ignore_test.go
-	// {
-	// 	Name:    "star matching",
-	// 	Pattern: []string{"/*.txt"},
-	// 	Files:   []string{"foo.txt", "somedir/foo.txt"},
-	// },
-	// {
-	// 	Name:    "double star prefix",
-	// 	Pattern: []string{"**/foo.txt"},
-	// 	Files:   []string{"hello/foo.txt", "some/dirs/foo.txt"},
-	// },
-	// {
-	// 	Name:    "double star suffix",
-	// 	Pattern: []string{"/hello/**"},
-	// 	Files:   []string{"hello/foo.txt", "some/dirs/foo.txt"},
-	// },
-	// {
-	//
-	// 	Name:    "double star in path",
-	// 	Pattern: []string{"/hello/**/world.txt"},
-	// 	Files:   []string{"hello/world.txt", "hello/stuff/world.txt", "some/dirs/foo.txt"},
-	// },
-	// {
-	// 	Name:    "negate doubl start patterns",
-	// 	Pattern: []string{"!**/foo.txt"},
-	// 	Files:   []string{"hello/foo.txt", "hello/foo.txt", "hello/world.txt"},
-	// },
+	{
+		Name:    "star matching",
+		Pattern: []string{"/*.txt"},
+		Files:   []string{"foo.txt", "somedir/foo.txt"},
+	},
+	{
+		Name:    "double star prefix",
+		Pattern: []string{"**/foo.txt"},
+		Files:   []string{"hello/foo.txt", "some/dirs/foo.txt"},
+	},
+	{
+		Name:    "double star suffix",
+		Pattern: []string{"/hello/**"},
+		Files:   []string{"hello/foo.txt", "some/dirs/foo.txt"},
+	},
+	{
+
+		Name:    "double star in path",
+		Pattern: []string{"/hello/**/world.txt"},
+		Files:   []string{"hello/world.txt", "hello/stuff/world.txt", "some/dirs/foo.txt"},
+	},
+	{
+		Name:    "negate doubl start patterns",
+		Pattern: []string{"!**/foo.txt"},
+		Files:   []string{"hello/foo.txt", "hello/foo.txt", "hello/world.txt"},
+	},
 
 	// https://github.com/nathankleyn/gitignore.rs/tree/master/tests/resources/fake_repo
 	// {

@@ -1,6 +1,7 @@
 package gitignore
 
 import (
+	"fmt"
 	"regexp"
 	"strings"
 )
@@ -10,6 +11,7 @@ type Pattern struct {
 }
 
 var (
+	exprStripPrefixSlash = regexp.MustCompile("^/")
 	exprStripSuffixSlash = regexp.MustCompile("/$")
 )
 
@@ -80,6 +82,7 @@ func normalize(line string) string {
 var splitExp = regexp.MustCompile(`\*\*(\/\*)?`)
 
 func patternToRegex(pattern string) *regexp.Regexp {
+	fmt.Printf("\n+ %s\n", pattern)
 
 	prefix := ""
 	if strings.HasPrefix(pattern, "/") {
@@ -95,18 +98,29 @@ func patternToRegex(pattern string) *regexp.Regexp {
 	for _, p := range splitExp.Split(pattern, -1) { // strings.Split(patter, "**") {
 		innerPat := []string{}
 		for _, pi := range strings.Split(p, "*") {
-			innerPat = append(innerPat, regexp.QuoteMeta(pi))
+			innerPat = append(innerPat, regexp.QuoteMeta(stripSurroundingSlashes(pi)))
+			// fmt.Printf("| . %s\n", innerPat)
 		}
 		pat = append(pat, strings.Join(innerPat, `[^/]*`))
 	}
 
-	exp, _ := regexp.Compile(prefix + strings.Join(pat, `.*`))
+	fmt.Printf("| = %s\n", prefix+strings.Join(pat, `(/.*/|/)`))
+
+	exp, _ := regexp.Compile(prefix + strings.Join(pat, `(.*|)`))
 
 	return exp
 }
 
 func stripSuffixSlash(str string) string {
 	return exprStripSuffixSlash.ReplaceAllString(str, "")
+}
+
+func stripPrefixSlash(str string) string {
+	return exprStripPrefixSlash.ReplaceAllString(str, "")
+}
+
+func stripSurroundingSlashes(str string) string {
+	return stripPrefixSlash(stripSuffixSlash(str))
 }
 
 func ensureSuffixSlash(str string) string {

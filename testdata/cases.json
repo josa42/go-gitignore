@@ -124,5 +124,77 @@
     "pattern": "data/*\n!data/keep.txt\n/rootdata/*\n!keep.all.txt\ntmp/",
     "file_path": "sub/tmp/file",
     "ignored": true
+  },
+  {
+    "name": "star matching: foo.txt",
+    "pattern": "/*.txt",
+    "file_path": "foo.txt",
+    "ignored": true
+  },
+  {
+    "name": "star matching: somedir/foo.txt",
+    "pattern": "/*.txt",
+    "file_path": "somedir/foo.txt",
+    "ignored": false
+  },
+  {
+    "name": "double star prefix: hello/foo.txt",
+    "pattern": "**/foo.txt",
+    "file_path": "hello/foo.txt",
+    "ignored": true
+  },
+  {
+    "name": "double star prefix: some/dirs/foo.txt",
+    "pattern": "**/foo.txt",
+    "file_path": "some/dirs/foo.txt",
+    "ignored": true
+  },
+  {
+    "name": "double star suffix: hello/foo.txt",
+    "pattern": "/hello/**",
+    "file_path": "hello/foo.txt",
+    "ignored": true
+  },
+  {
+    "name": "double star suffix: some/dirs/foo.txt",
+    "pattern": "/hello/**",
+    "file_path": "some/dirs/foo.txt",
+    "ignored": false
+  },
+  {
+    "name": "double star in path: hello/world.txt",
+    "pattern": "/hello/**/world.txt",
+    "file_path": "hello/world.txt",
+    "ignored": true
+  },
+  {
+    "name": "double star in path: hello/stuff/world.txt",
+    "pattern": "/hello/**/world.txt",
+    "file_path": "hello/stuff/world.txt",
+    "ignored": true
+  },
+  {
+    "name": "double star in path: some/dirs/foo.txt",
+    "pattern": "/hello/**/world.txt",
+    "file_path": "some/dirs/foo.txt",
+    "ignored": false
+  },
+  {
+    "name": "negate doubl start patterns: hello/foo.txt",
+    "pattern": "!**/foo.txt",
+    "file_path": "hello/foo.txt",
+    "ignored": false
+  },
+  {
+    "name": "negate doubl start patterns: hello/foo.txt",
+    "pattern": "!**/foo.txt",
+    "file_path": "hello/foo.txt",
+    "ignored": false
+  },
+  {
+    "name": "negate doubl start patterns: hello/world.txt",
+    "pattern": "!**/foo.txt",
+    "file_path": "hello/world.txt",
+    "ignored": false
   }
 ]
